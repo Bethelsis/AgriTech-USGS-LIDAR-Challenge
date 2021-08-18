@@ -10,6 +10,10 @@
 
 ## Installation
 
+- **Install Required Python Modules**
+``` 
+pip install requirements packages
+```
 
 ## Usage
 
