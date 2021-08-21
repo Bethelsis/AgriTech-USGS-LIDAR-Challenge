@@ -78,6 +78,6 @@ if __name__ == "__main__":
     region="IA_FullState"
     fetcher = Fetch_data(bound,region)
     data=fetcher.runPipeline(polygon)
-    df = fetcher.get_elevation(data)
-    print(df.info())
-    print(df)
+#     df = fetcher.get_elevation(data)
+#     print(df.info())
+#     print(df)
