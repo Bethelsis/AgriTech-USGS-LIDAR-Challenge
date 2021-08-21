@@ -32,7 +32,7 @@ pygments_style = 'sphinx'
 todo_include_todos = False
 
 
-mes.
+
 
 html_theme = 'sphinx_rtd_theme'
 
@@ -51,7 +51,7 @@ htmlhelp_basename = 'WordCountdoc'
 
 
 
-latex_elements = {
+latex_elements = {}
 
 latex_documents = [
     (master_doc, 'WordCount.tex', 'WordCount Documentation',
