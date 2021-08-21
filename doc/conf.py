@@ -1,16 +1,19 @@
-
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../source'))
-extensions = ['sphinx.ext.autodoc']
-templates_path = ['_templates']
-source_suffix = '.rst'
 
+
+extensions = ['sphinx.ext.autodoc']
+
+templates_path = ['_templates']
+
+
+source_suffix = '.rst'
 
 master_doc = 'index'
 
 
-project = 'Lidar data module'
+project = 'Lidar Data Module'
 copyright = '2021'
 author = 'Bethelhem Sisay'
 
@@ -22,15 +25,14 @@ release = '0.1'
 
 language = None
 
-
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
 
 pygments_style = 'sphinx'
 
 todo_include_todos = False
 
 
+mes.
 
 html_theme = 'sphinx_rtd_theme'
 
@@ -40,36 +42,32 @@ html_static_path = []
 
 html_sidebars = {
     '**': [
-        'relations.html',  
+        'relations.html', 
         'searchbox.html',
     ]
 }
 
-
-htmlhelp_basename = 'Lidar data fetch'
+htmlhelp_basename = 'WordCountdoc'
 
 
 
 latex_elements = {
 
-
 latex_documents = [
-    (master_doc, 'lidar.tex', 'lidar Documentation',
-     'Bethelhem', 'manual'),
+    (master_doc, 'WordCount.tex', 'WordCount Documentation',
+     'Harsha', 'manual'),
 ]
 
 
-
 man_pages = [
-    (master_doc, 'Lidar', 'lidar Documentation',
+    (master_doc, 'wordcount', 'WordCount Documentation',
      [author], 1)
 ]
 
 
 texinfo_documents = [
-    (master_doc, 'lidar', 'Lidar documentation',
-     author, 'Bethelhem sisay', 'Lidar'),
+    (master_doc, 'WordCount', 'WordCount Documentation',
+     author, 'WordCount', 'One line description of project.',
+     'Miscellaneous'),
 ]
-
-
 
