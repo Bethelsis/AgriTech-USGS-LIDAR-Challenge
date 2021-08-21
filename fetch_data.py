@@ -29,7 +29,7 @@ class Fetch_data:
 
     def getPipeline(self, polygon: Polygon):
         fetch_json = self.read_Json()
-        polygon_input = self.get_polygon_boundaries(polygon)
+        polygon_input = self.polygon_boundaries(polygon)
         full_dataset_path = f"https://s3-us-west-2.amazonaws.com/usgs-lidar-public/{region}/ept.json"
         #print(full_dataset_path)
         fetch_json['pipeline'][0]['filename'] = full_dataset_path
