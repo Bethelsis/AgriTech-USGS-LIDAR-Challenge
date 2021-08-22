@@ -6,23 +6,20 @@ class Fetch_data:
     def __init__(self,bound,region:str) -> None:
         self.bound = bound
         self.region = region
-    def __readFetchJson(self) -> dict:
+    def read_Json(self) -> dict:
         try:
             with open("fetch_data.json", 'r') as json_file:
                 dict_obj = json.load(json_file)
             return dict_obj
         except FileNotFoundError as e:
             print('FILE NOT FOUND')
-    def get_polygon_boundaries(self, polygon: Polygon):
+    def polygon_boundaries(self, polygon: Polygon):
         polygon_df = gpd.GeoDataFrame([polygon], columns=['geometry'])
 
         polygon_df.set_crs(26915, inplace=True)
-        polygon_df['geometry'] = polygon_df['geometry'].to_crs(
-            3857)
+        polygon_df['geometry'] = polygon_df['geometry'].to_crs(3857)
         minx, miny, maxx, maxy = polygon_df['geometry'][0].bounds
-
         polygon_input = 'POLYGON(('
-
         xcord, ycord = polygon_df['geometry'][0].exterior.coords.xy
         for x, y in zip(list(xcord), list(ycord)):
             polygon_input += f'{x} {y}, '
@@ -31,8 +28,8 @@ class Fetch_data:
         return polygon_input
 
     def getPipeline(self, polygon: Polygon):
-        fetch_json = self.__readFetchJson()
-        polygon_input = self.get_polygon_boundaries(polygon)
+        fetch_json = self.read_Json()
+        polygon_input = self.polygon_boundaries(polygon)
         full_dataset_path = f"https://s3-us-west-2.amazonaws.com/usgs-lidar-public/{region}/ept.json"
         #print(full_dataset_path)
         fetch_json['pipeline'][0]['filename'] = full_dataset_path
@@ -52,20 +49,20 @@ class Fetch_data:
             return pipeline.arrays
         except RuntimeError as e:
             print(e)
-    def get_elevetion(self, array_data):
+    def get_elevation(self, array_data):
         if array_data:
 
             for i in array_data:
                 geometry_points = [Point(x, y) for x, y in zip(i["X"], i["Y"])]
-                elevetions = i["Z"]
+                elevations = i["Z"]
                 df = gpd.GeoDataFrame(columns=["elevation", "geometry"])
-                df['elevation'] = elevetions
+                df['elevation'] = elevations
                 df['geometry'] = geometry_points
                 df = df.set_geometry("geometry")
                 df.set_crs(epsg=26915, inplace=True)
 
             return df
-    def get_heatmap_visulazation(self, df: gpd.GeoDataFrame, cmap="terrain") -> None:
+    def visualize (self, df: gpd.GeoDataFrame, cmap="terrain") -> None:
 
         fig, ax = plt.subplots(1, 1, figsize=(12, 10))
 
@@ -81,6 +78,6 @@ if __name__ == "__main__":
     region="IA_FullState"
     fetcher = Fetch_data(bound,region)
     data=fetcher.runPipeline(polygon)
-    df = get_elevetion(data)
-    print(df.info())
-    print(df)
+#     df = fetcher.get_elevation(data)
+#     print(df.info())
+#     print(df)
