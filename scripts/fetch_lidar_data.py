@@ -7,7 +7,7 @@ from edit_pipeline import edit_pipeline
 from logger import Logger
 logger = Logger()
 logger = logger.get_logger('FetchData')
-class FetchData():
+class fetch_lidar_data():
     def __init__(self, polygon, region:str, input_epsg=3857, output_epsg=4326):
 
         self.polygon = polygon
