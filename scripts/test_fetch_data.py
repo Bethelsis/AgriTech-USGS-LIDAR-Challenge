@@ -1,4 +1,4 @@
-from fetch_data import FetchData
+from fetch_lidar_data import fetch_lidar_data
 from shapely.geometry import Polygon, Point
 
 MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.756055, 41.918115]
