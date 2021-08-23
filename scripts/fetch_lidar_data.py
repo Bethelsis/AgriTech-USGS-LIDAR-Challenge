@@ -31,7 +31,7 @@ class fetch_lidar_data():
         return f"({[minx, maxx]},{[miny,maxy]})", polygon_input
 
 
-    def creat_pipeline(self):
+    def create_pipeline(self):
         bound, polygon_input = self.get_polygon_boundaries(self.polygon)
         full_dataset_path, tif_path, laz_path = dataset_path(self.region)
         if type(full_dataset_path) == str:
@@ -49,7 +49,7 @@ class fetch_lidar_data():
 
 
     def run_pipeline(self):
-        pipelines = self.creat_pipeline()
+        pipelines = self.create_pipeline()
         if type(pipelines)==list:
             metadata_list = []
             log_list = []
@@ -89,7 +89,7 @@ if(__name__ == '__main__'):
     polygon = Polygon(((MINX, MINY), (MINX, MAXY), (MAXX, MAXY), (MAXX, MINY), (MINX, MINY)))
     region = "IA_FullState"
     data_fetcher = FetchData(polygon, region)
-    pipeline_list = data_fetcher.creat_pipeline()
+    pipeline_list = data_fetcher.create_pipeline()
     data=data_fetcher.run_pipeline()
     df = data_fetcher.get_elevation(data)
     print(df.info())
