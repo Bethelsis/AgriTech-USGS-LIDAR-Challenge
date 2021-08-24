@@ -7,8 +7,12 @@ Required
 --------
 
 - Python
-- pdal
-- Matplotlib
+- matplotlib
+- rasterio
+- PDAL
+- Shapely
+- geopandas
+- logger
 
 
 
