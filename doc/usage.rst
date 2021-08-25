@@ -20,7 +20,8 @@ Class fetch_lidar_data:
   It leverages the pdal.io pipeline to fetch, translate, and alter cloud data points. A JSON pipeline description is required by the pdal.io pipeline. The pipeline   is defined via a json file template (pipeline.json file).
 
   def get_elevation(self, array_data):
-  This method takes a numpy array of cloud data points from the pdal pipeline and creates a geopandas data frame with an elevation column and a geometry column that   indicate point coordinates in a particular coordinate reference system.
+  
+    This method takes a numpy array of cloud data points from the pdal pipeline and creates a geopandas data frame with an elevation column and a geometry column       that indicate point coordinates in a particular coordinate reference system.
         Args:
             array_data (Numpy): cloud data points in Numpy format
         Returns:
