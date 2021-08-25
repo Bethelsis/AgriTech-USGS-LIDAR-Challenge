@@ -3,8 +3,7 @@
    in this index.rst for them to be rendered and added to the
    table of contents
 
-
-Lidar data Module
+USGS LIDAR on Agritech’s Module documentation!
 ==========
 
 .. toctree::
