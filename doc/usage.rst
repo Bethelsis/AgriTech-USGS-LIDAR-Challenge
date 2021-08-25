@@ -39,6 +39,13 @@ Class fetch_lidar_data:
   reads the point cloud data from the EPT resource on AWS.
      Returns:
      list of numpy array of cloud point data 
+     
+  class Visualize:
+
+    This class is used to create a plot from the .tif file.
+
+    def plot(self, filename : str, title : str):
+        Takes in the filename to the .tif file, and the title to the plot as input and plots it.
 
 
 
