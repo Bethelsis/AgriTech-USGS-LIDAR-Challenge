@@ -15,8 +15,9 @@ $ git clone https://github.com/Bethelsis/AgriTech-USGS-LIDAR-Challenge.git
 description
 -----------
 Class fetch_lidar_data:
-This class retrieves lidar elevation data points from a publicly available data file. (https://s3-us-west-2.amazonaws.com/usgs-lidar-public/).
-It leverages the pdal.io pipeline to fetch, translate, and alter cloud data points. A JSON pipeline description is required by the pdal.io pipeline. The pipeline is defined via a json file template (pipeline.json file).
+
+  This class retrieves lidar elevation data points from a publicly available data file. (https://s3-us-west-2.amazonaws.com/usgs-lidar-public/).
+  It leverages the pdal.io pipeline to fetch, translate, and alter cloud data points. A JSON pipeline description is required by the pdal.io pipeline. The pipeline   is defined via a json file template (pipeline.json file).
 
   def get_elevation(self, array_data):
   This method takes a numpy array of cloud data points from the pdal pipeline and creates a geopandas data frame with an elevation column and a geometry column that   indicate point coordinates in a particular coordinate reference system.
