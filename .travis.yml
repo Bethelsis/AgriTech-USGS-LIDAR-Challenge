@@ -18,5 +18,5 @@ cache:
 
 # Command to run tests, e.g. python setup.py test
 script:
-  - python -m unittest tests.test_fetch_lidar_data.py
+  - python -m unittest tests.test_fetch_lidar_data
 
